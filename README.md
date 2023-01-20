@@ -1,4 +1,10 @@
 
+# Before Start
+- winget
+- ansible
+- choclatery
+- scoop
+
 
 # DNS/DDNS
 - no ip
@@ -20,6 +26,7 @@
 - adguard
 - Geph
 - netmod
+- tikvpn
 - Clients
 
     ---------------【Windows】--------------
@@ -202,7 +209,8 @@ https://github.com/tindy2013/stairspeedtest-reborn/releases
 - samsung flow
 - solar putty
 - Terminal
-
+- Bitwarden
+- winget UI
 
 
 
