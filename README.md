@@ -15,6 +15,7 @@
 - Torguard
 - Proton Products
 - windscribe
+- BitviseSSH
 - OpenVPN
 - wireguard
 - Nord
@@ -211,7 +212,8 @@ https://github.com/tindy2013/stairspeedtest-reborn/releases
 - Terminal
 - Bitwarden
 - winget UI
-
+- Thunderbirad
+- powertoys
 
 
 # WSL
