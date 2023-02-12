@@ -1,9 +1,34 @@
 
+
+
+
+
+
+
 # Before Start
+- Set-ExecutionPolicy Bypass
+- Activate Windows and office
+- windows update
+- windows store update
+- Easy VPN / DNS
+- 
+
+
+
+
+
+
+
+
+
+# Package manager 
+- install powershell 7
+- check winget
 - winget
-- ansible
+- config winget
 - choclatery
 - scoop
+- ansible
 
 
 # DNS/DDNS
@@ -192,6 +217,8 @@ https://github.com/tindy2013/stairspeedtest-reborn/releases
     - 7zip
     - winrar
 - putty
+- Rufus
+- Ventoy
 - winscp
 - Razer
 - Logitech
@@ -270,4 +297,12 @@ https://github.com/tindy2013/stairspeedtest-reborn/releases
 # Decentralize
 - session
 - bastyon
+
+
+
+# After Installation 
+- Date Time
+- Personalize
+
+
 
