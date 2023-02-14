@@ -2,7 +2,7 @@ Disable-UAC
 
 # Activate
 
-irm https://massgrave.dev/get | iex
+Invoke-RestMethod https://massgrave.dev/get | Invoke-Expression
 
 # Start-Process powershell "-ExecutionPolicy Bypass -NoProfile -NoExit -Command `" `"" -Verb RunAs
 winget settings --enable InstallerHashOverride
