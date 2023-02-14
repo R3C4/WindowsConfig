@@ -1,12 +1,9 @@
-using module InteractiveMenu 
-Install-Module -Name InteractiveMenu
+Install-Module -Name InteractiveMenu -Force
 Import-Module InteractiveMenu
 
-# Disable-UAC
+Disable-UAC
 
 Set-ExecutionPolicy Bypass -Scope CurrentUser -Force;
-
-
 
 $Path = Get-Location;
 $ScriptPath = $Path + "\scripts\";
@@ -35,42 +32,131 @@ $Scripts =
     "AfterInstallation"
 
 $menuItems = @(
-    [InteractiveMultiMenuItem]::new("BeforeStart", "Before Start", $true, 0, $false, "Activate windows")
-    [InteractiveMultiMenuItem]::new("PackageManager", "Package Manger", $true, 1, $false, "Install Winget , Chochlatey , Scoop , NuGet and Upgrade Windows")
-    [InteractiveMultiMenuItem]::new("DNS", "DNS / DDNS", $true, 1, $false, "Setup ControlD and DDNS")
-    [InteractiveMultiMenuItem]::new("RuntimeLanguage", "Runtime / Language", $true, 2, $false, "Install Runtimes and Programming Languages")
-    [InteractiveMultiMenuItem]::new("VPN", "VPN", $true, 3, $false, "Install VPN Software and Protocol")
-    [InteractiveMultiMenuItem]::new("WindowsFeatures", "Enable Windows Features", $true, 4, $false, "")
-    [InteractiveMultiMenuItem]::new("Social", "Social Media", $true, 5, $false, "Install Social Media")
-    [InteractiveMultiMenuItem]::new("Browser", "Browser", $true, 6, $false, "Install Browser")
-    [InteractiveMultiMenuItem]::new("Game", "Game Clients", $true, 7, $false, "Install Game Clients")
-    [InteractiveMultiMenuItem]::new("Utile", "Utility Software", $true, 8, $false, "Install Utile Software")
-    [InteractiveMultiMenuItem]::new("WSL", "Enable WSL", $true, 9, $false, "Enable WSL and Install Distributions")
-    [InteractiveMultiMenuItem]::new("Ubuntu", "Install and Config Ubuntu", $true, 10, $false, "Config Ubuntu")
-    [InteractiveMultiMenuItem]::new("Debian", "Install and Config Debian", $true, 11, $false, "Config Debian")
-    [InteractiveMultiMenuItem]::new("Kali", "Install and Config KAli", $true, 12, $false, "Config Kali")
-    [InteractiveMultiMenuItem]::new("Terminal", "config Terminal and Install Terminal Softwares", $true, 13, $false, "Config Terminal")
-    [InteractiveMultiMenuItem]::new("IDE", "Install IDE and Database", $true, 14, $false, "Install IDE and Database Management")
-    [InteractiveMultiMenuItem]::new("Graphic", "Install Graphic and Video Sofwares", $true, 15, $false, "Install Graphic / Design Software")
-    [InteractiveMultiMenuItem]::new("Decentralize", "Install Web3 and Decentralize Software", $true, 16, $false, "Install Web3 / Decentralize Software")
-    [InteractiveMultiMenuItem]::new("Devices", "Install Device Client Software", $true, 17, $false, "Install Device Manager Software")
-    [InteractiveMultiMenuItem]::new("AfterInstallation", "Update and Upgrade", $true, 18, $false, "Update and Upgrade Windows and Reboot")
+        Get-InteractiveMultiMenuOption `
+        -Item "BeforeStart" `
+        -Label "Before Start" `
+        -Order 0 `
+        -Info "Activate windows" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "PackageManager" `
+        -Label "Package Manger" `
+        -Order 1 `
+        -Info "Install Winget , Chochlatey , Scoop , NuGet and Upgrade Windows" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "DNS" `
+        -Label "DNS / DDNS" `
+        -Order 2 `
+        -Info "Setup ControlD and DDNS" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "RuntimeLanguage" `
+        -Label "Runtime / Language" `
+        -Order 3 `
+        -Info "Install Runtimes and Programming Languages" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "VPN" `
+        -Label "VPN" `
+        -Order 4 `
+        -Info "Install VPN Software and Protocol" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "WindowsFeatures" `
+        -Label "Enable Windows Features" `
+        -Order 5 `
+        -Info "Enable Windows Features" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "Social" `
+        -Label "Social Media" `
+        -Order 6 `
+        -Info "Install Social Media" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "Browser" `
+        -Label "Browser" `
+        -Order 7 `
+        -Info "Install Browser" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "Game" `
+        -Label "Game Clients" `
+        -Order 8 `
+        -Info "Install Game Clients" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "Utile" `
+        -Label "Utility Software" `
+        -Order 9 `
+        -Info "Install Utile Software" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "WSL" `
+        -Label "Enable WSL" `
+        -Order 10 `
+        -Info "Enable WSL and Install Distributions" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "Ubuntu" `
+        -Label "Install and Config Ubuntu" `
+        -Order 11 `
+        -Info "Config Ubuntu" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "Debian" `
+        -Label "Install and Config Debian" `
+        -Order 12 `
+        -Info "Config Debian" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "Kali" `
+        -Label "Install and Config KAli" `
+        -Order 13 `
+        -Info "Config Kali" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "Terminal" `
+        -Label "config Terminal and Install Terminal Softwares" `
+        -Order 14 `
+        -Info "Config Terminal" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "IDE" `
+        -Label "Install IDE and Database" `
+        -Order 15 `
+        -Info "Install IDE and Database Management" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "Graphic" `
+        -Label "Install Graphic and Video Sofwares" `
+        -Order 16 `
+        -Info "Install Graphic / Design Software" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "Decentralize" `
+        -Label "Install Web3 and Decentralize Software" `
+        -Order 17 `
+        -Info "Install Web3 / Decentralize Software" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "Devices" `
+        -Label "Install Device Client Software" `
+        -Order 18 `
+        -Info "Install Device Manager Software" `
+        -Selected
+        Get-InteractiveMultiMenuOption `
+        -Item "AfterInstallation" `
+        -Label "Update and Upgrade" `
+        -Order 19 `
+        -Info "Update and Upgrade Windows and Reboot" `
+        -Selected
+
 )
 
-
-
-# Define the header of the menu
-$header = @"
-    Welcome To PCC(R3C4) Script
-    It Helps you to install and configure your Windows
-    Please Select The Script You Want To Run
-    Press Enter to run the selected scripts
-"@
-# Instantiate new menu object
-$menu = [InteractiveMultiMenu]::new($header, $menuItems);
-
 $options = @{
-    HeaderColor = [ConsoleColor]::DarkGreen;
+    HeaderColor = [ConsoleColor]::DarkYellow;
     HelpColor = [ConsoleColor]::Cyan;
     CurrentItemColor = [ConsoleColor]::DarkGreen;
     LinkColor = [ConsoleColor]::DarkCyan;
@@ -82,15 +168,23 @@ $options = @{
     MenuInfoColor = [ConsoleColor]::DarkYellow;
     MenuErrorColor = [ConsoleColor]::DarkRed;
 }
-$menu.SetOptions($options)
 
-$selectedItems = $menu.GetSelections()
+# Define the header of the menu
+$header = @"
+    Welcome To PCC(R3C4) Script
+    It Helps you to install and configure your Windows
+    Please Select The Script You Want To Run
+    Press Enter to run the selected scripts
+"@
+
+
+$selectedItems = Get-InteractiveMenuUserSelection -Header $header -Items $menuItems -Options $options
 
 Function ScriptRunner ( $ScriptName ){
     Start-Process powershell "-ExecutionPolicy Bypass -NoProfile -NoExit -Command `" Invoke-RestMethod $ScriptName | Invoke-RestMethod  `" " -Verb RunAs ;
 }
 
-foreach( $ScriptName in $selectedItems){
-    $ScriptName = $BaseUrl + $ScriptName + ".ps1";
-    ScriptRunner $ScriptName;
-}
+# foreach( $ScriptName in $selectedItems){
+#     $ScriptName = $BaseUrl + $ScriptName + ".ps1";
+#     ScriptRunner $ScriptName;
+# }
