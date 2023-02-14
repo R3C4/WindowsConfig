@@ -1,9 +1,10 @@
-Install-Module -Name InteractiveMenu -Force
-Import-Module InteractiveMenu
 
 Disable-UAC
 
 Set-ExecutionPolicy Bypass -Scope CurrentUser -Force;
+
+Import-Module InteractiveMenu
+Install-Module -Name InteractiveMenu -Force
 
 $Path = Get-Location;
 $ScriptPath = $Path + "\scripts\";
