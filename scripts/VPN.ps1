@@ -68,6 +68,24 @@ Start-Process -Filepath "netmod.exe" -ArgumentList "/S" -Wait
 # Invoke-WebRequest -Uri  -OutFile 
 # Start-Process -Filepath "" -ArgumentList "/S" -Wait 
 
+# Powershell function to downlod latest realese of a github repo
+
+function Git-Downloader {
+    param (
+        OptionalParameters
+        [Parameter(Mandatory=$true)]
+        [string]$User,
+        [Parameter(Mandatory=$true)]
+        [string]$Repo        
+    )
+    
+}
+
+
+
+
+
+
 # - Clients
 
 # 【Clashs for windows】
