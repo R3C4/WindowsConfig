@@ -19,28 +19,36 @@ mullvad split-tunnel app add $PuttyPath
 
 # Get Mullvad Bridges
 
+# Make Function that Return Object with Mullvad Bridges
 
-$MullvadServersApi = "https://api-www.mullvad.net/www/relays/all/";
+function Get-MullvadBridges {
+    
+    $MullvadServersApi = "https://api-www.mullvad.net/www/relays/all/" ;
+    $MullvadServersJSON = (Invoke-WebRequest -Uri $MullvadServersApi).Content  ;
+    $MullvadServersCompelete = $MullvadServersJSON | ConvertFrom-Json ;
+    $MullvadServersActive = $MullvadServersCompelete | Where-Object { $_.active -eq "True" } ;
+    $MullvadServersBridges = $MullvadServersActive | Where-Object { $_.type -eq "bridge" } ;
+    $MullvadServersBridgesPort10G = $MullvadServersBridges | Where-Object { $_.network_port_speed -eq "10" };
+    $V2rayBridges = $MullvadServersBridges | Where-Object { $_.ipv4_v2ray -ne $null };
+    
+    $Mullvad = {
+        Servers = $MullvadServersCompelete ,
+        Actives = $MullvadServersActive ,
+        Bridges = $MullvadServersBridges ,
+        Bridges10G = $MullvadServersBridgesPort10G ,
+        V2ray = $V2rayBridges 
+    }
 
-$MullvadServersJSON = (Invoke-WebRequest -Uri $MullvadServersApi).Content ;
-
-$MullvadServersCompelete = $MullvadServersJSON | ConvertFrom-Json;
-
-$MullvadServersActive = $MullvadServersCompelete | Where-Object { $_.active -eq "True" };
-
-$MullvadServersBridges = $MullvadServersActive | Where-Object { $_.type -eq "bridge" };
-
-$MullvadServersBridgesPort10G = $MullvadServersBridges | Where-Object { $_.network_port_speed -eq "10" };
+    return $Mullvad 
+}
 
 
 
-$V2rayBridge = $MullvadServersBridges | Where-Object { $_.ipv4_v2ray -ne $null };
+
 
 $Random10GSSHBridge = $MullvadServersBridgesPort10G | Get-Random;
-
 $RandomSSHBridge = $MullvadServersBridges | Get-Random;
-
-$RandomV2rayBridge = $V2rayBridge | Get-Random;
+$RandomV2rayBridge = $V2rayBridges | Get-Random;
 
 # Setup V2ray
 

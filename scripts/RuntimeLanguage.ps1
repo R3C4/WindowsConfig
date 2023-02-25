@@ -31,6 +31,13 @@ winget install -e --id Oracle.JDK.19 --force --ignore-security-hash
 
 # - Yarn
 winget install -e --id Yarn.Yarn --force --ignore-security-hash  
+# PNPM
+iwr https://get.pnpm.io/install.ps1 -useb | iex
+
+
+# Flutter 
+choco install flutter --confirm --force --force-dependencies --acceptlicense  
+
 
 # - Docker
 winget install -e --id Docker.DockerDesktop --force --ignore-security-hash  

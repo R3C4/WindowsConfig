@@ -72,7 +72,6 @@ Start-Process -Filepath "netmod.exe" -ArgumentList "/S" -Wait
 
 function Git-Downloader {
     param (
-        OptionalParameters
         [Parameter(Mandatory=$true)]
         [string]$User,
         [Parameter(Mandatory=$true)]
