@@ -211,11 +211,12 @@ $SelectedScripts = Get-InteractiveMenuUserSelection -Header $SelectedScriptsTitl
 # $ScriptPath = $Path + "\scripts\";
 # $ScriptFullPath = $ScriptPath + $ScriptName;
 $BaseUrl = "https://raw.githubusercontent.com/R3C4/WindowsConfig/main/"
-
+$Scripts = "scripts/"
+$SelectedVPNURL = $BaseUrl+ $Scripts + $SelectedVPN + '.ps1'
 
 # Run Selected VPN
 # (Invoke-WebRequest $BaseUrl + $SelectedVPN + ".ps1")
-Start-Process powershell "-ExecutionPolicy Bypass -NoProfile -NoExit -Command (Invoke-Expression -Command (Invoke-WebRequest $BaseUrl+ "scripts/" + $SelectedVPN + ".ps1")) " -Verb RunAs ;
+Start-Process powershell "-ExecutionPolicy Bypass -NoProfile -NoExit -Command (Invoke-Expression -Command (Invoke-WebRequest $SelectedVPNURL )) " -Verb RunAs ;
 
 # Run Selected Scripts
 Function ScriptRunner ( $ScriptName ){
