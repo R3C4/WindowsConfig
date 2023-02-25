@@ -37,33 +37,34 @@ $Scripts =
 $VPNItems = @(
     Get-InteractiveChooseMenuOption `
         -Label "Geph" `
-        -Value "Geph" `
+        -Value "RunGeph" `
         -Info "Geph"
     Get-InteractiveChooseMenuOption `
         -Label "Windscribe" `
-        -Value "Windscribe" `
+        -Value "RunWindscribe" `
         -Info "Windscribe WSTunnel and Stealth"
     Get-InteractiveChooseMenuOption `
         -Label "Mullvad" `
-        -Value "Mullvad" `
+        -Value "RunMullvad" `
         -Info "Mullvad With SSH and V2ray Bridge"
     Get-InteractiveChooseMenuOption `
         -Label "TorGuardVPN" `
-        -Value "TorGuardVPN" `
+        -Value "RunTorGuardVPN" `
         -Info "TorGuardVPN With AnyConnect and OpenVPN"
     Get-InteractiveChooseMenuOption `
         -Label "TorGuardProxy" `
-        -Value "TorGuardProxy" `
+        -Value "RunTorGuardProxy" `
         -Info "TorGuardProxy With SSH and V2ray Servers on Nekoray or V2rayA or V2rayN"
     Get-InteractiveChooseMenuOption `
         -Label "ControlD" `
-        -Value "ControlD" `
+        -Value "RunControlD" `
         -Info "ControlD DNS DOH and Legacy"
 )
 
 $SelectVPNTitle = "Choose Your VPN For Starting Script to Bypass Restrictions"
 
 $SelectedVPN = Get-InteractiveMenuChooseUserSelection -Question $SelectVPNTitle -Answers $VPNItems
+
 
 
 # Second Let User Choose Scripts
@@ -209,12 +210,12 @@ $SelectedScripts = Get-InteractiveMenuUserSelection -Header $SelectedScriptsTitl
 $Path = Get-Location;
 $ScriptPath = $Path + "\scripts\";
 $ScriptFullPath = $ScriptPath + $ScriptName;
-$BaseUrl = "https://pcc.com/"
+$BaseUrl = "https://raw.githubusercontent.com/R3C4/WindowsConfig/main/"
 
 
 # Run Selected VPN
 # (Invoke-WebRequest $BaseUrl + $SelectedVPN + ".ps1")
-Start-Process powershell "-ExecutionPolicy Bypass -NoProfile -NoExit -Command (Invoke-Expression -Command (Invoke-WebRequest $BaseUrl + $SelectedVPN + ".ps1")) " -Verb RunAs ;
+Start-Process powershell "-ExecutionPolicy Bypass -NoProfile -NoExit -Command (Invoke-Expression -Command (Invoke-WebRequest $BaseUrl+ "scripts/" + $SelectedVPN + ".ps1")) " -Verb RunAs ;
 
 # Run Selected Scripts
 Function ScriptRunner ( $ScriptName ){
@@ -222,7 +223,7 @@ Function ScriptRunner ( $ScriptName ){
 }
 
 foreach( $ScriptName in $SelectedScripts){
-    $ScriptName = $BaseUrl + $ScriptName + ".ps1";
+    $ScriptName = $BaseUrl + "scripts/" +$ScriptName + ".ps1";
     ScriptRunner $ScriptName;
 }
 

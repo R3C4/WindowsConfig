@@ -2,12 +2,12 @@
 
 
 # winget
-# winget upgradewinget upgrade --all --silent
+winget upgradewinget upgrade --all --silent
 
 
 
 # Chochlatey
-# choco upgrade all
+choco upgrade all
 
 # scoop
-# scoop update
+scoop update

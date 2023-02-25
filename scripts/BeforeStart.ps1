@@ -1,4 +1,3 @@
-Disable-UAC
 
 # Activate
 

@@ -1,4 +1,23 @@
 
+
+
+iwr "https://raw.githubusercontent.com/R3C4/WindowsConfig/main/WPCC.ps1" | iex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Before Start
 
 - Easy VPN / DNS
