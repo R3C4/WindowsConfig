@@ -207,9 +207,9 @@ $SelectedScripts = Get-InteractiveMenuUserSelection -Header $SelectedScriptsTitl
 
 # Set Variable
 
-$Path = Get-Location;
-$ScriptPath = $Path + "\scripts\";
-$ScriptFullPath = $ScriptPath + $ScriptName;
+# $Path = Get-Location;
+# $ScriptPath = $Path + "\scripts\";
+# $ScriptFullPath = $ScriptPath + $ScriptName;
 $BaseUrl = "https://raw.githubusercontent.com/R3C4/WindowsConfig/main/"
 
 
