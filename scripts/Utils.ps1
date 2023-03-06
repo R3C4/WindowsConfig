@@ -10,9 +10,7 @@ winget install -e --id Daum.PotPlayer --force --ignore-security-hash
 winget install -e --id Dio.PureCodec --force --ignore-security-hash  
 
 #     - 30nama
-Invoke-WebRequest -Uri "https://github.com/Mr30nama/30nama/releases/download/v0.9.7/30nama-Setup-0.9.7.exe" -OutFile '30nama.exe'
-Start-Process -Filepath "30nama.exe" -ArgumentList "/S" -Wait winget install --silent
-
+GitDownloader -UserRepo "Mr30nama/30nama" -Type "exe" -Install $true
 
 #     - stereamio
 Invoke-WebRequest -Uri "https://www.strem.io/download?four=4" -OutFile 'streamio.exe'
