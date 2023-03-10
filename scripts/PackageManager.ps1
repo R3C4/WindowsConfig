@@ -7,7 +7,7 @@ winget install -e --id Microsoft.PowerShell --force --ignore-security-hash
 # winget
 # Invoke-WebRequest -Uri "https://github.com/microsoft/winget-cli/releases/latest/*.msixbundle" -OutFile "C:\path\file"
 winget install -e --id SomePythonThings.WingetUIStore --force --ignore-security-hash  
-
+winget upgrade
 
 # chochlatey
 
@@ -19,6 +19,8 @@ winget install -e --id SomePythonThings.WingetUIStore --force --ignore-security-
 # Start-Process powershell "-ExecutionPolicy Bypass -NoProfile -NoExit -Command `"Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))`"" -Verb RunAs
 # Set-ExecutionPolicy Bypass -Scope Process -Force; 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'));
+
+
 
 choco upgrade chocolatey  --confirm --force --force-dependencies --acceptlicense  
 choco update chocolatey  --confirm --force --force-dependencies --acceptlicense  
@@ -32,6 +34,7 @@ choco upgrade chocolateygui  --confirm --force --force-dependencies --acceptlice
 # Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
 # Invoke-RestMethod get.scoop.sh | Invoke-Expression
 Start-Process powershell "-ExecutionPolicy RemoteSigned -NoProfile -NoExit -Command `" Invoke-RestMethod get.scoop.sh | Invoke-Expression `""
+scoop update
 
 # NuGet
 winget install -e --id Microsoft.NuGet --force --ignore-security-hash  
